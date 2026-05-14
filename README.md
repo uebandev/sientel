@@ -7,7 +7,7 @@
 **Современный кроссплатформенный VPN клиент с поддержкой множества протоколов**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows-lightgrey.svg)](https://github.com/yourusername/sientel)
+[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows-lightgrey.svg)](https://github.com/uebandev/sientel)
 
 [English](README.en.md) | **Русский**
 
@@ -30,19 +30,13 @@
 
 ## Установка
 
-### Arch Linux (AUR)
+### Linux
 
-```bash
-yay -S sientel-bin
-```
-
-### Другие дистрибутивы Linux
-
-Скачайте последний AppImage из [Releases](https://github.com/yourusername/sientel/releases):
+Скачайте последний AppImage из [Releases](https://github.com/uebandev/sientel/releases):
 
 ```bash
 # Скачать
-wget https://github.com/yourusername/sientel/releases/latest/download/Sientel-1.0.0.AppImage
+wget https://github.com/uebandev/sientel/releases/latest/download/Sientel-1.0.0.AppImage
 
 # Сделать исполняемым
 chmod +x Sientel-1.0.0.AppImage
@@ -67,7 +61,7 @@ sudo pacman -S fuse2 polkit
 
 ### Windows
 
-Скачайте установщик из [Releases](https://github.com/yourusername/sientel/releases) и запустите его.
+Скачайте установщик из [Releases](https://github.com/uebandev/sientel/releases) и запустите его.
 
 ## Использование
 
@@ -143,7 +137,7 @@ sudo pacman -S nodejs npm
 
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/yourusername/sientel.git
+git clone https://github.com/uebandev/sientel.git
 cd sientel
 
 # Установить зависимости
@@ -246,7 +240,7 @@ curl -x http://127.0.0.1:10809 https://api.ipify.org
 ## Поддержка
 
 - 📱 Telegram: [@sientel](https://t.me/sientel)
-- 🐛 Проблемы: [GitHub Issues](https://github.com/yourusername/sientel/issues)
+- 🐛 Проблемы: [GitHub Issues](https://github.com/uebandev/sientel/issues)
 
 ---
 

@@ -7,7 +7,7 @@
 **Modern cross-platform VPN client with support for multiple protocols**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows-lightgrey.svg)](https://github.com/yourusername/sientel)
+[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows-lightgrey.svg)](https://github.com/uebandev/sientel)
 
 **English** | [Русский](README.md)
 
@@ -30,19 +30,13 @@
 
 ## Installation
 
-### Arch Linux (AUR)
+### Linux
 
-```bash
-yay -S sientel-bin
-```
-
-### Other Linux Distributions
-
-Download the latest AppImage from [Releases](https://github.com/yourusername/sientel/releases):
+Download the latest AppImage from [Releases](https://github.com/uebandev/sientel/releases):
 
 ```bash
 # Download
-wget https://github.com/yourusername/sientel/releases/latest/download/Sientel-1.0.0.AppImage
+wget https://github.com/uebandev/sientel/releases/latest/download/Sientel-1.0.0.AppImage
 
 # Make executable
 chmod +x Sientel-1.0.0.AppImage
@@ -67,7 +61,7 @@ sudo pacman -S fuse2 polkit
 
 ### Windows
 
-Download the installer from [Releases](https://github.com/yourusername/sientel/releases) and run it.
+Download the installer from [Releases](https://github.com/uebandev/sientel/releases) and run it.
 
 ## Usage
 
@@ -143,7 +137,7 @@ sudo pacman -S nodejs npm
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/sientel.git
+git clone https://github.com/uebandev/sientel.git
 cd sientel
 
 # Install dependencies
