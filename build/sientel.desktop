@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Sientel
+GenericName=VPN Client
+Comment=Modern VPN client with multiple protocol support
+Exec=sientel %U
+Icon=sientel
+Terminal=false
+Categories=Network;Security;
+MimeType=x-scheme-handler/sientel;
+Keywords=vpn;proxy;vless;vmess;trojan;shadowsocks;
+StartupWMClass=Sientel

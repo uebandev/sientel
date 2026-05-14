@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Sientel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <div class="drag-region"></div>
+    
+    <div class="window-controls">
+      <button class="win-btn minimize" onclick="windowMinimize()"></button>
+      <button class="win-btn maximize" onclick="windowMaximize()"></button>
+      <button class="win-btn close" onclick="windowClose()"></button>
+    </div>
+    
+    <div class="sidebar">
+      <div class="logo"><img src="../assets/icon.png" alt="S"></div>
+      <div class="nav-item active" data-page="servers" title="Серверы">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      </div>
+      <div class="nav-item" data-page="settings" title="Настройки">
+        <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+      </div>
+      <div class="nav-item" data-page="about" title="О программе">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      </div>
+    </div>
+
+    <div class="main-panel">
+      <div class="page active" id="servers-page">
+        <div class="page-header">
+          <h1>Серверы</h1>
+        </div>
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="Поиск...">
+          <button class="icon-btn" onclick="showAddSubModal()" title="Добавить">＋</button>
+        </div>
+        <div class="subscriptions-list" id="subscriptionsList"></div>
+      </div>
+
+      <div class="page" id="settings-page">
+        <div class="page-header">
+          <h1>Настройки</h1>
+        </div>
+        <div class="settings-section">
+          <div class="setting-group">
+            <div class="setting-row">
+              <span>SOCKS5 порт</span>
+              <input type="number" value="10808" id="socksPort">
+            </div>
+            <div class="setting-row">
+              <span>HTTP порт</span>
+              <input type="number" value="10809" id="httpPort">
+            </div>
+          </div>
+          <div class="setting-group">
+            <div class="setting-row">
+              <span>Автоподключение</span>
+              <label class="switch"><input type="checkbox" id="autoConnect"><span class="slider"></span></label>
+            </div>
+            <div class="setting-row">
+              <span>Запуск с Windows</span>
+              <label class="switch"><input type="checkbox" id="startWithWindows"><span class="slider"></span></label>
+            </div>
+            <div class="setting-row">
+              <span>Отключать в играх</span>
+              <label class="switch"><input type="checkbox" id="disconnectOnGame"><span class="slider"></span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page" id="about-page">
+        <div class="page-header">
+          <h1>О программе</h1>
+        </div>
+        <div class="about-section">
+          <div class="about-logo">
+            <img src="../assets/icon.png" alt="Sientel">
+          </div>
+          <div class="about-title">Sientel</div>
+          <div class="about-version" id="appVersion">v1.0.0</div>
+          
+          <div class="about-group">
+            <div class="about-row">
+              <span class="about-label">Electron</span>
+              <span class="about-value" id="aboutElectronVersion">—</span>
+            </div>
+            <div class="about-row">
+              <span class="about-label">Node.js</span>
+              <span class="about-value" id="aboutNodeVersion">—</span>
+            </div>
+            <div class="about-row">
+              <span class="about-label">Платформа</span>
+              <span class="about-value" id="aboutPlatform">—</span>
+            </div>
+          </div>
+
+          <div class="about-group">
+            <div class="about-row">
+              <span class="about-label">Xray</span>
+              <span class="about-value" id="aboutXrayVersion">—</span>
+            </div>
+            <div class="about-row">
+              <span class="about-label">sing-box</span>
+              <span class="about-value" id="aboutSingboxVersion">—</span>
+            </div>
+          </div>
+
+          <div class="about-group">
+            <div class="about-row">
+              <span class="about-label">HWID</span>
+              <span class="about-value about-hwid" id="aboutHwid" onclick="copyHwid()">—</span>
+            </div>
+          </div>
+
+          <div class="about-links">
+            <button class="about-link-btn" onclick="openTelegram()">Telegram</button>
+            <button class="about-link-btn" onclick="checkUpdates()">Обновления</button>
+          </div>
+
+          <div class="about-footer">
+            <p>© 2024 Sientel</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connect-panel" id="connectPanel">
+      <div class="connect-circle" id="connectCircle" onclick="toggleConnection()">
+        <svg viewBox="0 0 24 24" class="power-icon"><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/></svg>
+      </div>
+      
+      <div class="connection-status">
+        <div class="status-text" id="statusText">Отключено</div>
+        <div class="status-timer" id="statusTimer">00:00:00</div>
+      </div>
+
+      <div class="selected-server">
+        <div id="selectedFlag">—</div>
+        <span id="selectedName">Выберите сервер</span>
+      </div>
+
+      <button class="action-btn" onclick="testPing()">Проверить</button>
+
+      <div class="mode-switch">
+        <button class="mode-btn active" onclick="setMode('proxy')">Proxy</button>
+        <button class="mode-btn tun" onclick="setMode('tun')">TUN</button>
+      </div>
+
+      <div class="ip-panel">
+        <div class="ip-indicator" id="ipIndicator">
+          <div class="ip-icon">🌐</div>
+          <div class="ip-info">
+            <div class="ip-label" id="ipLabel">IP</div>
+            <div class="ip-value" id="ipValue">—</div>
+          </div>
+          <button class="ip-refresh" onclick="refreshIP()">↻</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="download-overlay hidden" id="downloadOverlay">
+    <div class="download-modal">
+      <div class="download-icon">
+        <svg viewBox="0 0 24 24" class="download-spinner"><path d="M12 4V2C6.48 2 2 6.48 2 12h2c0-4.41 3.59-8 8-8zm0 16c-4.41 0-8-3.59-8-8H2c0 5.52 4.48 10 10 10v-2zm8-10c0-4.41-3.59-8-8-8v2c3.31 0 6 2.69 6 6h2zm-2 8c1.66-1.66 2.67-3.93 2.67-6.33h-2c0 1.84-.71 3.58-2 4.89l1.33 1.44z"/></svg>
+      </div>
+      <div class="download-title" id="downloadTitle">Загрузка</div>
+      <div class="download-status" id="downloadStatus">Подготовка...</div>
+      <div class="download-progress-bar">
+        <div class="download-progress-fill" id="downloadProgressFill"></div>
+      </div>
+      <div class="download-percent" id="downloadPercent">0%</div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <div class="modal hidden" id="addSubModal">
+    <div class="modal-content">
+      <h3>Добавить подписку</h3>
+      <input type="text" id="subUrlInput" placeholder="Ссылка на подписку">
+      <input type="text" id="subNameInput" placeholder="Название">
+      <div class="modal-buttons">
+        <button onclick="hideAddSubModal()">Отмена</button>
+        <button onclick="addSubscription()">Добавить</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

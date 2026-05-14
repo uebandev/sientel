@@ -1,0 +1,19 @@
+pkgbase = sientel-bin
+	pkgdesc = Modern VPN client with support for VLESS, VMess, Trojan, Shadowsocks, Hysteria2, TUIC
+	pkgver = 1.0.0
+	pkgrel = 1
+	url = https://github.com/yourusername/sientel
+	arch = x86_64
+	arch = aarch64
+	license = MIT
+	depends = fuse2
+	depends = polkit
+	optdepends = libappindicator-gtk3: for system tray icon support
+	provides = sientel
+	conflicts = sientel
+	source_x86_64 = sientel-bin-1.0.0.AppImage::https://github.com/yourusername/sientel/releases/download/v1.0.0/Sientel-1.0.0.AppImage
+	sha256sums_x86_64 = SKIP
+	source_aarch64 = sientel-bin-1.0.0.AppImage::https://github.com/yourusername/sientel/releases/download/v1.0.0/Sientel-1.0.0-arm64.AppImage
+	sha256sums_aarch64 = SKIP
+
+pkgname = sientel-bin

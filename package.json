@@ -1,0 +1,96 @@
+{
+  "name": "sientel-client",
+  "version": "1.0.0",
+  "description": "VPN клиент с поддержкой VLESS, VMess, Trojan, Shadowsocks, Hysteria2, TUIC (TCP, WebSocket, gRPC, xHTTP)",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --enable-logging",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux",
+    "build:portable": "electron-builder --win portable",
+    "pack": "electron-builder --dir"
+  },
+  "author": {
+    "name": "Sientel",
+    "email": "support@sientel.com"
+  },
+  "homepage": "https://t.me/sientel",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.10"
+  },
+  "build": {
+    "appId": "com.sientel.client",
+    "productName": "Sientel",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "src/assets/icon.png",
+      "requestedExecutionLevel": "requireAdministrator"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "src/assets/icon.png",
+      "category": "Network",
+      "synopsis": "VPN Client",
+      "description": "Modern VPN client with support for multiple protocols"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Sientel"
+    },
+    "portable": {
+      "artifactName": "Sientel-Portable.exe"
+    },
+    "protocols": {
+      "name": "Sientel Protocol",
+      "schemes": [
+        "sientel"
+      ]
+    }
+  }
+}
